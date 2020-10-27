@@ -1,8 +1,8 @@
 --Add the following code to your controller script, under the System slot and inside the flush() filter. Find a suitable line anywhere below the Final Inputs but above the Engine Commands, and not interfering with other code structures.
 
-if unit.getThrottle() == 0 then
-local worldVelocity = vec3(core.getWorldVelocity())
-   if math.abs(worldVelocity.x) + math.abs(worldVelocity.y) + math.abs(worldVelocity.z) < 20 then
+--AutoBrake
+if unit.getThrottle() < 5 then
+   if math.abs(vec3(core.getWorldVelocity()).x) + math.abs(vec3(core.getWorldVelocity()).y) < 20 then
        finalBrakeInput = 1
    end
 end
