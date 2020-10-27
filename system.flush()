@@ -3,7 +3,7 @@
 
 
 -- Idle Brake
-if unit.getThrottle() == 0 then
+if unit.getThrottle() < 1 then
    if vec3(core.getWorldVelocity()):len() < 10 then
        finalBrakeInput = 1
    end
